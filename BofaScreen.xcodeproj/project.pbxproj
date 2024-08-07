@@ -9,23 +9,21 @@
 /* Begin PBXBuildFile section */
 		D4A1C0A82C63B45300B7AF36 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A1C0A72C63B45300B7AF36 /* AppDelegate.swift */; };
 		D4A1C0AA2C63B45300B7AF36 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A1C0A92C63B45300B7AF36 /* SceneDelegate.swift */; };
-		D4A1C0AC2C63B45300B7AF36 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A1C0AB2C63B45300B7AF36 /* ViewController.swift */; };
 		D4A1C0B12C63B45500B7AF36 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4A1C0B02C63B45500B7AF36 /* Assets.xcassets */; };
 		D4A1C0B42C63B45500B7AF36 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = D4A1C0B32C63B45500B7AF36 /* Base */; };
-		D4A1C0BC2C63C19300B7AF36 /* DropDownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A1C0BB2C63C19300B7AF36 /* DropDownView.swift */; };
 		D4A1C0BE2C63C5BC00B7AF36 /* ScrollableStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A1C0BD2C63C5BC00B7AF36 /* ScrollableStackView.swift */; };
+		D4A1C0C02C63FBAC00B7AF36 /* BofaScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A1C0BF2C63FBAC00B7AF36 /* BofaScreenViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		D4A1C0A42C63B45300B7AF36 /* BofaScreen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BofaScreen.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4A1C0A72C63B45300B7AF36 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D4A1C0A92C63B45300B7AF36 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		D4A1C0AB2C63B45300B7AF36 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D4A1C0B02C63B45500B7AF36 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D4A1C0B32C63B45500B7AF36 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D4A1C0B52C63B45500B7AF36 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D4A1C0BB2C63C19300B7AF36 /* DropDownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownView.swift; sourceTree = "<group>"; };
 		D4A1C0BD2C63C5BC00B7AF36 /* ScrollableStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollableStackView.swift; sourceTree = "<group>"; };
+		D4A1C0BF2C63FBAC00B7AF36 /* BofaScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BofaScreenViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,9 +58,8 @@
 			children = (
 				D4A1C0A72C63B45300B7AF36 /* AppDelegate.swift */,
 				D4A1C0A92C63B45300B7AF36 /* SceneDelegate.swift */,
-				D4A1C0AB2C63B45300B7AF36 /* ViewController.swift */,
+				D4A1C0BF2C63FBAC00B7AF36 /* BofaScreenViewController.swift */,
 				D4A1C0BD2C63C5BC00B7AF36 /* ScrollableStackView.swift */,
-				D4A1C0BB2C63C19300B7AF36 /* DropDownView.swift */,
 				D4A1C0B02C63B45500B7AF36 /* Assets.xcassets */,
 				D4A1C0B22C63B45500B7AF36 /* LaunchScreen.storyboard */,
 				D4A1C0B52C63B45500B7AF36 /* Info.plist */,
@@ -140,8 +137,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D4A1C0AC2C63B45300B7AF36 /* ViewController.swift in Sources */,
-				D4A1C0BC2C63C19300B7AF36 /* DropDownView.swift in Sources */,
+				D4A1C0C02C63FBAC00B7AF36 /* BofaScreenViewController.swift in Sources */,
 				D4A1C0BE2C63C5BC00B7AF36 /* ScrollableStackView.swift in Sources */,
 				D4A1C0A82C63B45300B7AF36 /* AppDelegate.swift in Sources */,
 				D4A1C0AA2C63B45300B7AF36 /* SceneDelegate.swift in Sources */,
