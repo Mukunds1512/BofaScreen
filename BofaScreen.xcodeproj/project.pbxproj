@@ -13,6 +13,7 @@
 		D4A1C0B42C63B45500B7AF36 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = D4A1C0B32C63B45500B7AF36 /* Base */; };
 		D4A1C0BE2C63C5BC00B7AF36 /* ScrollableStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A1C0BD2C63C5BC00B7AF36 /* ScrollableStackView.swift */; };
 		D4A1C0C02C63FBAC00B7AF36 /* BofaScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A1C0BF2C63FBAC00B7AF36 /* BofaScreenViewController.swift */; };
+		D4A1C0C22C653E8C00B7AF36 /* RadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A1C0C12C653E8C00B7AF36 /* RadioButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		D4A1C0B52C63B45500B7AF36 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D4A1C0BD2C63C5BC00B7AF36 /* ScrollableStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollableStackView.swift; sourceTree = "<group>"; };
 		D4A1C0BF2C63FBAC00B7AF36 /* BofaScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BofaScreenViewController.swift; sourceTree = "<group>"; };
+		D4A1C0C12C653E8C00B7AF36 /* RadioButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				D4A1C0A72C63B45300B7AF36 /* AppDelegate.swift */,
 				D4A1C0A92C63B45300B7AF36 /* SceneDelegate.swift */,
 				D4A1C0BF2C63FBAC00B7AF36 /* BofaScreenViewController.swift */,
+				D4A1C0C12C653E8C00B7AF36 /* RadioButton.swift */,
 				D4A1C0BD2C63C5BC00B7AF36 /* ScrollableStackView.swift */,
 				D4A1C0B02C63B45500B7AF36 /* Assets.xcassets */,
 				D4A1C0B22C63B45500B7AF36 /* LaunchScreen.storyboard */,
@@ -139,6 +142,7 @@
 			files = (
 				D4A1C0C02C63FBAC00B7AF36 /* BofaScreenViewController.swift in Sources */,
 				D4A1C0BE2C63C5BC00B7AF36 /* ScrollableStackView.swift in Sources */,
+				D4A1C0C22C653E8C00B7AF36 /* RadioButton.swift in Sources */,
 				D4A1C0A82C63B45300B7AF36 /* AppDelegate.swift in Sources */,
 				D4A1C0AA2C63B45300B7AF36 /* SceneDelegate.swift in Sources */,
 			);
