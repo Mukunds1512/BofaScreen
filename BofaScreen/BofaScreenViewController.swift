@@ -7,27 +7,53 @@
 
 import UIKit
 
-class BofaScreenViewController: UIViewController {
+class BofaScreenViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate{
     
     private let scrollableStackView = ScrollableStackView()
     private let identificationLabel = UILabel()
     private let citizenshipLabel = UILabel()
     private let spacerView = UIView()
     private let spacerView2 = UIView()
+    private let spacerView3 = UIView()
+    private let spacerView4 = UIView()
+    private let spacerView5 = UIView()
     private let yesButton = RadioButton(frame: .zero)
     private let noButton = RadioButton(frame: .zero)
-    
+    private let countryTextField = UITextField()
+    private let citizenshipTextField = UITextField()
+  
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        countryTextField.delegate = self
+        citizenshipTextField.delegate = self
         setupScrollableStackView()
         addIdentificationLabelToStackView()
         addSpacerViewToStackView()
         setupCitizenshipLabel()
         addSpacerViewToStackView2()
         setupRadioButton()
+        addSpacerViewToStackView3()
+        setupCountryLabel()
+        addSpacerViewToStackView4()
+        setupCitizenshipStatus()
+        addSpacerViewToStackView5()
+        setupQuestionView()
+        
     }
+    
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+
+    func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange) -> Bool {
+        UIApplication.shared.open(URL)
+        return false
+    }
+    
     
     private func setupScrollableStackView() {
         
@@ -76,7 +102,7 @@ class BofaScreenViewController: UIViewController {
     
     private func addSpacerViewToStackView() {
             spacerView.translatesAutoresizingMaskIntoConstraints = false
-            spacerView.heightAnchor.constraint(equalToConstant: 15).isActive = true // Adjust spacing here
+            spacerView.heightAnchor.constraint(equalToConstant: 17).isActive = true // Adjust spacing here
             scrollableStackView.addArrangedSubview(spacerView)
         }
     
@@ -94,7 +120,7 @@ class BofaScreenViewController: UIViewController {
     
     private func addSpacerViewToStackView2() {
             spacerView2.translatesAutoresizingMaskIntoConstraints = false
-            spacerView2.heightAnchor.constraint(equalToConstant: 10).isActive = true // Adjust spacing here
+            spacerView2.heightAnchor.constraint(equalToConstant: 12).isActive = true // Adjust spacing here
             scrollableStackView.addArrangedSubview(spacerView2)
         }
     
@@ -142,6 +168,89 @@ class BofaScreenViewController: UIViewController {
                         mainStackView.leadingAnchor.constraint(equalTo: scrollableStackView.leadingAnchor, constant: 20),
                         mainStackView.trailingAnchor.constraint(equalTo: scrollableStackView.trailingAnchor, constant: -200),
                 ])
+    }
+    
+    private func addSpacerViewToStackView3() {
+            spacerView3.translatesAutoresizingMaskIntoConstraints = false
+            spacerView3.heightAnchor.constraint(equalToConstant: 20).isActive = true // Adjust spacing here
+            scrollableStackView.addArrangedSubview(spacerView3)
+        }
+    
+    private func setupCountryLabel(){
+        let countryLabel = UILabel()
+        countryLabel.text = "Country of Citizenship *"
+        countryLabel.font = UIFont.boldSystemFont(ofSize: 18)
+        countryLabel.backgroundColor = .white
+        countryLabel.textAlignment = .left
+        
+        
+        countryTextField.placeholder = "Panama"
+        countryTextField.backgroundColor = .white
+        countryTextField.borderStyle = .roundedRect
+        countryTextField.textAlignment = .left
+        
+        
+        
+        countryLabel.translatesAutoresizingMaskIntoConstraints = false
+        scrollableStackView.addArrangedSubview(countryLabel)
+        
+        countryTextField.translatesAutoresizingMaskIntoConstraints = false
+        scrollableStackView.addArrangedSubview(countryTextField)
+        
+        
+    }
+    
+    private func addSpacerViewToStackView4() {
+            spacerView4.translatesAutoresizingMaskIntoConstraints = false
+            spacerView4.heightAnchor.constraint(equalToConstant: 15).isActive = true // Adjust spacing here
+            scrollableStackView.addArrangedSubview(spacerView4)
+        }
+    
+    private func setupCitizenshipStatus(){
+        let citizenshipStatusLabel = UILabel()
+        citizenshipStatusLabel.text = "Citizenship status *"
+        citizenshipStatusLabel.font = UIFont.boldSystemFont(ofSize: 18)
+        citizenshipStatusLabel.backgroundColor = .white
+        citizenshipStatusLabel.textAlignment = .left
+        
+        
+        citizenshipTextField.placeholder = "Select"
+        citizenshipTextField.backgroundColor = .white
+        citizenshipTextField.borderStyle = .roundedRect
+        citizenshipTextField.textAlignment = .left
+        
+        
+        
+        citizenshipStatusLabel.translatesAutoresizingMaskIntoConstraints = false
+        scrollableStackView.addArrangedSubview(citizenshipStatusLabel)
+        
+        citizenshipTextField.translatesAutoresizingMaskIntoConstraints = false
+        scrollableStackView.addArrangedSubview(citizenshipTextField)
+        
+    }
+    
+    private func addSpacerViewToStackView5() {
+            spacerView5.translatesAutoresizingMaskIntoConstraints = false
+            spacerView5.heightAnchor.constraint(equalToConstant: 5).isActive = true // Adjust spacing here
+            scrollableStackView.addArrangedSubview(spacerView5)
+        }
+    
+    private func setupQuestionView() {
+        let questionTextView = UITextView()
+        
+        let attributedString = NSMutableAttributedString(string: "Help me answer this question")
+        attributedString.addAttribute(.link, value: "https://www.bankofamerica.com/", range: (attributedString.string as NSString).range(of: "Help me answer this question"))
+        let underlineStyle = NSUnderlineStyle.patternDash.rawValue | NSUnderlineStyle.single.rawValue
+        questionTextView.linkTextAttributes = [.foregroundColor: UIColor.systemBlue, .underlineStyle: underlineStyle]
+        questionTextView.backgroundColor = .clear
+        questionTextView.attributedText = attributedString
+        questionTextView.textColor = .label
+        questionTextView.font = UIFont.boldSystemFont(ofSize: 15)
+        questionTextView.isSelectable = true
+        questionTextView.isEditable = false
+        questionTextView.isScrollEnabled = false
+        
+        scrollableStackView.addArrangedSubview(questionTextView)
     }
     
 }
