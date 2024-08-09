@@ -15,7 +15,6 @@ class BofaScreenViewController: UIViewController, UITextFieldDelegate, UITextVie
     private var countryTextField = UITextField()
     private var citizenshipTextField = UITextField()
     private var residenceTextField = UITextField()
-  
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,27 +23,26 @@ class BofaScreenViewController: UIViewController, UITextFieldDelegate, UITextVie
         citizenshipTextField.delegate = self
         setupScrollableStackView()
         addIdentificationLabelToStackView()
-        addSpacerViewToStackView()
+        addSpacerView(withHeight: 15)
         setupCitizenshipLabel()
-        addSpacerViewToStackView2()
+        addSpacerView(withHeight: 12)
         setupRadioButton()
-        addSpacerViewToStackView3()
+        addSpacerView(withHeight: 20)
         setupLabelWithTextField(labelText: "Country of Citizenship *", textFieldPlaceholder: "Panama")
-        addSpacerViewToStackView4()
+        addSpacerView(withHeight: 15)
         setupLabelWithTextField(labelText: "Citizenship status *", textFieldPlaceholder: "Select")
-        addSpacerViewToStackView5()
+        addSpacerView(withHeight: 5)
         setupQuestionView()
-        addSpacerViewToStackView6()
+        addSpacerView(withHeight: 15)
         setupIdLabel()
-        addSpacerViewToStackView7()
+        addSpacerView(withHeight: 15)
         setupRadioButton2()
-        addSpacerViewToStackView8()
+        addSpacerView(withHeight: 15)
         setupLabelWithTextField(labelText: "Country of residence ", textFieldPlaceholder: "Select")
-        addSpacerViewToStackView9()
+        addSpacerView(withHeight: 15)
         setupNextButton()
         
     }
-    
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
@@ -56,9 +54,7 @@ class BofaScreenViewController: UIViewController, UITextFieldDelegate, UITextVie
         return false
     }
     
-    
     private func setupScrollableStackView() {
-        
         scrollableStackView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(scrollableStackView)
         
@@ -71,7 +67,6 @@ class BofaScreenViewController: UIViewController, UITextFieldDelegate, UITextVie
     }
     
     private func addIdentificationLabelToStackView(){
-        
         identificationLabel.numberOfLines = 0
         identificationLabel.backgroundColor = .white
         identificationLabel.textAlignment =  .left
@@ -102,15 +97,14 @@ class BofaScreenViewController: UIViewController, UITextFieldDelegate, UITextVie
                ])
     }
     
-    private func addSpacerViewToStackView() {
+    private func addSpacerView(withHeight height: CGFloat) {
             let spacerView = UIView()
             spacerView.translatesAutoresizingMaskIntoConstraints = false
-            spacerView.heightAnchor.constraint(equalToConstant: 17).isActive = true // Adjust spacing here
+            spacerView.heightAnchor.constraint(equalToConstant: height).isActive = true
             scrollableStackView.addArrangedSubview(spacerView)
         }
     
     private func setupCitizenshipLabel() {
-        
         citizenshipLabel.text = "Do you have U.S. citizenship? *"
         citizenshipLabel.backgroundColor = .white
         citizenshipLabel.textAlignment = .left
@@ -118,18 +112,9 @@ class BofaScreenViewController: UIViewController, UITextFieldDelegate, UITextVie
         
         citizenshipLabel.translatesAutoresizingMaskIntoConstraints = false
         scrollableStackView.addArrangedSubview(citizenshipLabel)
-        
     }
     
-    private func addSpacerViewToStackView2() {
-            let spacerView2 = UIView()
-            spacerView2.translatesAutoresizingMaskIntoConstraints = false
-            spacerView2.heightAnchor.constraint(equalToConstant: 12).isActive = true // Adjust spacing here
-            scrollableStackView.addArrangedSubview(spacerView2)
-        }
-    
     private func setupRadioButton() {
-        
         let yesButton = RadioButton(frame: .zero)
         let noButton = RadioButton(frame: .zero)
         
@@ -176,27 +161,6 @@ class BofaScreenViewController: UIViewController, UITextFieldDelegate, UITextVie
                 ])
     }
     
-    private func addSpacerViewToStackView3() {
-            let spacerView3 = UIView()
-            spacerView3.translatesAutoresizingMaskIntoConstraints = false
-            spacerView3.heightAnchor.constraint(equalToConstant: 20).isActive = true // Adjust spacing here
-            scrollableStackView.addArrangedSubview(spacerView3)
-        }
-    
-    private func addSpacerViewToStackView4() {
-            let spacerView4 = UIView()
-            spacerView4.translatesAutoresizingMaskIntoConstraints = false
-            spacerView4.heightAnchor.constraint(equalToConstant: 15).isActive = true // Adjust spacing here
-            scrollableStackView.addArrangedSubview(spacerView4)
-        }
-    
-    private func addSpacerViewToStackView5() {
-            let spacerView5 = UIView()
-            spacerView5.translatesAutoresizingMaskIntoConstraints = false
-            spacerView5.heightAnchor.constraint(equalToConstant: 5).isActive = true // Adjust spacing here
-            scrollableStackView.addArrangedSubview(spacerView5)
-        }
-    
     private func setupQuestionView() {
         let questionTextView = UITextView()
         
@@ -216,13 +180,6 @@ class BofaScreenViewController: UIViewController, UITextFieldDelegate, UITextVie
         scrollableStackView.addArrangedSubview(questionTextView)
     }
     
-    private func addSpacerViewToStackView6() {
-            let spacerView6 = UIView()
-            spacerView6.translatesAutoresizingMaskIntoConstraints = false
-            spacerView6.heightAnchor.constraint(equalToConstant: 15).isActive = true // Adjust spacing here
-            scrollableStackView.addArrangedSubview(spacerView6)
-        }
-    
     private func setupIdLabel() {
         let idLabel = UILabel()
         idLabel.text = "Select the ID you have *"
@@ -233,16 +190,8 @@ class BofaScreenViewController: UIViewController, UITextFieldDelegate, UITextVie
         idLabel.translatesAutoresizingMaskIntoConstraints = false
         scrollableStackView.addArrangedSubview(idLabel)
     }
-    
-    private func addSpacerViewToStackView7() {
-            let spacerView7 = UIView()
-            spacerView7.translatesAutoresizingMaskIntoConstraints = false
-            spacerView7.heightAnchor.constraint(equalToConstant: 15).isActive = true // Adjust spacing here
-            scrollableStackView.addArrangedSubview(spacerView7)
-        }
-    
+
     private func setupRadioButton2() {
-        
         let ssnButton = RadioButton(frame: .zero)
         let itinButton = RadioButton(frame: .zero)
         let neitherButton = RadioButton(frame: .zero)
@@ -301,20 +250,6 @@ class BofaScreenViewController: UIViewController, UITextFieldDelegate, UITextVie
         mainStackView.leadingAnchor.constraint(equalTo: scrollableStackView.leadingAnchor, constant: 20)
         ])
     }
-    
-    private func addSpacerViewToStackView8() {
-            let spacerView8 = UIView()
-            spacerView8.translatesAutoresizingMaskIntoConstraints = false
-            spacerView8.heightAnchor.constraint(equalToConstant: 15).isActive = true // Adjust spacing here
-            scrollableStackView.addArrangedSubview(spacerView8)
-        }
-    
-    private func addSpacerViewToStackView9() {
-            let spacerView9 = UIView()
-            spacerView9.translatesAutoresizingMaskIntoConstraints = false
-            spacerView9.heightAnchor.constraint(equalToConstant: 15).isActive = true // Adjust spacing here
-            scrollableStackView.addArrangedSubview(spacerView9)
-        }
     
     private func setupNextButton(){
         let nextButton = UIButton()
