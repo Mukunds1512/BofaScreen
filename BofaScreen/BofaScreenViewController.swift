@@ -12,15 +12,9 @@ class BofaScreenViewController: UIViewController, UITextFieldDelegate, UITextVie
     private let scrollableStackView = ScrollableStackView()
     private let identificationLabel = UILabel()
     private let citizenshipLabel = UILabel()
-    private let spacerView = UIView()
-    private let spacerView2 = UIView()
-    private let spacerView3 = UIView()
-    private let spacerView4 = UIView()
-    private let spacerView5 = UIView()
-    private let yesButton = RadioButton(frame: .zero)
-    private let noButton = RadioButton(frame: .zero)
     private let countryTextField = UITextField()
     private let citizenshipTextField = UITextField()
+    private let residenceTextField = UITextField()
   
     
     override func viewDidLoad() {
@@ -40,6 +34,14 @@ class BofaScreenViewController: UIViewController, UITextFieldDelegate, UITextVie
         setupCitizenshipStatus()
         addSpacerViewToStackView5()
         setupQuestionView()
+        addSpacerViewToStackView6()
+        setupIdLabel()
+        addSpacerViewToStackView7()
+        setupRadioButton2()
+        addSpacerViewToStackView8()
+        setupResidenceStatus()
+        addSpacerViewToStackView9()
+        setupNextButton()
         
     }
     
@@ -101,6 +103,7 @@ class BofaScreenViewController: UIViewController, UITextFieldDelegate, UITextVie
     }
     
     private func addSpacerViewToStackView() {
+            let spacerView = UIView()
             spacerView.translatesAutoresizingMaskIntoConstraints = false
             spacerView.heightAnchor.constraint(equalToConstant: 17).isActive = true // Adjust spacing here
             scrollableStackView.addArrangedSubview(spacerView)
@@ -119,6 +122,7 @@ class BofaScreenViewController: UIViewController, UITextFieldDelegate, UITextVie
     }
     
     private func addSpacerViewToStackView2() {
+            let spacerView2 = UIView()
             spacerView2.translatesAutoresizingMaskIntoConstraints = false
             spacerView2.heightAnchor.constraint(equalToConstant: 12).isActive = true // Adjust spacing here
             scrollableStackView.addArrangedSubview(spacerView2)
@@ -126,9 +130,11 @@ class BofaScreenViewController: UIViewController, UITextFieldDelegate, UITextVie
     
     private func setupRadioButton() {
         
+        let yesButton = RadioButton(frame: .zero)
+        let noButton = RadioButton(frame: .zero)
+        
         yesButton.setTitle("", for: .normal)
         yesButton.alternateButton = [noButton]
-        
         noButton.setTitle("", for: .normal)
         noButton.alternateButton = [yesButton]
         
@@ -171,6 +177,7 @@ class BofaScreenViewController: UIViewController, UITextFieldDelegate, UITextVie
     }
     
     private func addSpacerViewToStackView3() {
+            let spacerView3 = UIView()
             spacerView3.translatesAutoresizingMaskIntoConstraints = false
             spacerView3.heightAnchor.constraint(equalToConstant: 20).isActive = true // Adjust spacing here
             scrollableStackView.addArrangedSubview(spacerView3)
@@ -201,6 +208,7 @@ class BofaScreenViewController: UIViewController, UITextFieldDelegate, UITextVie
     }
     
     private func addSpacerViewToStackView4() {
+            let spacerView4 = UIView()
             spacerView4.translatesAutoresizingMaskIntoConstraints = false
             spacerView4.heightAnchor.constraint(equalToConstant: 15).isActive = true // Adjust spacing here
             scrollableStackView.addArrangedSubview(spacerView4)
@@ -230,6 +238,7 @@ class BofaScreenViewController: UIViewController, UITextFieldDelegate, UITextVie
     }
     
     private func addSpacerViewToStackView5() {
+            let spacerView5 = UIView()
             spacerView5.translatesAutoresizingMaskIntoConstraints = false
             spacerView5.heightAnchor.constraint(equalToConstant: 5).isActive = true // Adjust spacing here
             scrollableStackView.addArrangedSubview(spacerView5)
@@ -250,7 +259,141 @@ class BofaScreenViewController: UIViewController, UITextFieldDelegate, UITextVie
         questionTextView.isEditable = false
         questionTextView.isScrollEnabled = false
         
+        questionTextView.translatesAutoresizingMaskIntoConstraints = false
         scrollableStackView.addArrangedSubview(questionTextView)
+    }
+    
+    private func addSpacerViewToStackView6() {
+            let spacerView6 = UIView()
+            spacerView6.translatesAutoresizingMaskIntoConstraints = false
+            spacerView6.heightAnchor.constraint(equalToConstant: 15).isActive = true // Adjust spacing here
+            scrollableStackView.addArrangedSubview(spacerView6)
+        }
+    
+    private func setupIdLabel() {
+        let idLabel = UILabel()
+        idLabel.text = "Select the ID you have *"
+        idLabel.font = UIFont.boldSystemFont(ofSize: 18)
+        idLabel.backgroundColor = .white
+        idLabel.textAlignment = .left
+        
+        idLabel.translatesAutoresizingMaskIntoConstraints = false
+        scrollableStackView.addArrangedSubview(idLabel)
+    }
+    
+    private func addSpacerViewToStackView7() {
+            let spacerView7 = UIView()
+            spacerView7.translatesAutoresizingMaskIntoConstraints = false
+            spacerView7.heightAnchor.constraint(equalToConstant: 15).isActive = true // Adjust spacing here
+            scrollableStackView.addArrangedSubview(spacerView7)
+        }
+    
+    private func setupRadioButton2() {
+        
+        let ssnButton = RadioButton(frame: .zero)
+        let itinButton = RadioButton(frame: .zero)
+        let neitherButton = RadioButton(frame: .zero)
+        ssnButton.setTitle("", for: .normal)
+        ssnButton.alternateButton = [itinButton, neitherButton]
+        
+        itinButton.setTitle("", for: .normal)
+        itinButton.alternateButton = [ssnButton, neitherButton]
+        
+        neitherButton.setTitle("", for: .normal)
+        neitherButton.alternateButton = [ssnButton, itinButton]
+        
+        let buttonSize: CGFloat = 20
+        ssnButton.widthAnchor.constraint(equalToConstant: buttonSize).isActive = true
+        ssnButton.heightAnchor.constraint(equalToConstant: buttonSize).isActive = true
+        itinButton.widthAnchor.constraint(equalToConstant: buttonSize).isActive = true
+        itinButton.heightAnchor.constraint(equalToConstant: buttonSize).isActive = true
+        neitherButton.heightAnchor.constraint(equalToConstant: buttonSize).isActive = true
+        neitherButton.widthAnchor.constraint(equalToConstant: buttonSize).isActive = true
+        
+        let ssnLabel = UILabel()
+        ssnLabel.text = "Social Security number (SSN)"
+        ssnLabel.textColor = .black
+        
+        let ssnStackView = UIStackView(arrangedSubviews: [ssnButton, ssnLabel])
+        ssnStackView.axis = .horizontal
+        ssnStackView.spacing = 8
+        
+        let itinLabel = UILabel()
+        itinLabel.text = "Individual Taxpayer ID Number (ITIN)"
+        itinLabel.textColor = .black
+        
+        let itinStackView = UIStackView(arrangedSubviews: [itinButton, itinLabel])
+        itinStackView.axis = .horizontal
+        itinStackView.spacing = 8
+        
+        let neitherLabel = UILabel()
+        neitherLabel.text = "Neither"
+        neitherLabel.textColor = .black
+        
+        let neitherStackView = UIStackView(arrangedSubviews: [neitherButton, neitherLabel])
+        neitherStackView.axis = .horizontal
+        neitherStackView.spacing = 8
+        
+        let mainStackView = UIStackView(arrangedSubviews: [ssnStackView, itinStackView, neitherStackView])
+                mainStackView.axis = .vertical
+                mainStackView.spacing = 15// Adjust spacing as needed
+                mainStackView.alignment = .leading
+                //mainStackView.distribution = .fillEqually
+                
+                // Add stack view to the view
+                mainStackView.translatesAutoresizingMaskIntoConstraints = false
+                scrollableStackView.addArrangedSubview(mainStackView)
+        
+                NSLayoutConstraint.activate([
+                        mainStackView.leadingAnchor.constraint(equalTo: scrollableStackView.leadingAnchor, constant: 20)
+                ])
+    }
+    
+    private func addSpacerViewToStackView8() {
+            let spacerView8 = UIView()
+            spacerView8.translatesAutoresizingMaskIntoConstraints = false
+            spacerView8.heightAnchor.constraint(equalToConstant: 15).isActive = true // Adjust spacing here
+            scrollableStackView.addArrangedSubview(spacerView8)
+        }
+    
+    private func setupResidenceStatus(){
+        let residenceStatusLabel = UILabel()
+        residenceStatusLabel.text = "Country of residence *"
+        residenceStatusLabel.font = UIFont.boldSystemFont(ofSize: 18)
+        residenceStatusLabel.backgroundColor = .white
+        residenceStatusLabel.textAlignment = .left
+        
+        
+        residenceTextField.placeholder = "Select"
+        residenceTextField.backgroundColor = .white
+        residenceTextField.borderStyle = .roundedRect
+        residenceTextField.textAlignment = .left
+        
+        residenceStatusLabel.translatesAutoresizingMaskIntoConstraints = false
+        scrollableStackView.addArrangedSubview(residenceStatusLabel)
+        
+        residenceTextField.translatesAutoresizingMaskIntoConstraints = false
+        scrollableStackView.addArrangedSubview(residenceTextField)
+        
+    }
+    
+    private func addSpacerViewToStackView9() {
+            let spacerView9 = UIView()
+            spacerView9.translatesAutoresizingMaskIntoConstraints = false
+            spacerView9.heightAnchor.constraint(equalToConstant: 15).isActive = true // Adjust spacing here
+            scrollableStackView.addArrangedSubview(spacerView9)
+        }
+    
+    private func setupNextButton(){
+        let nextButton = UIButton()
+        nextButton.setTitle("Next", for: .normal)
+        nextButton.backgroundColor = UIColor(red: 0.0, green: 0.2, blue: 0.6, alpha: 1.0)
+        nextButton.setTitleColor(.white, for: .normal)
+        nextButton.layer.cornerRadius = 10
+        
+        nextButton.translatesAutoresizingMaskIntoConstraints = false
+        scrollableStackView.addArrangedSubview(nextButton)
+        
     }
     
 }
