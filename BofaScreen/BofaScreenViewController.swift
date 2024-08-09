@@ -12,9 +12,9 @@ class BofaScreenViewController: UIViewController, UITextFieldDelegate, UITextVie
     private let scrollableStackView = ScrollableStackView()
     private let identificationLabel = UILabel()
     private let citizenshipLabel = UILabel()
-    private let countryTextField = UITextField()
-    private let citizenshipTextField = UITextField()
-    private let residenceTextField = UITextField()
+    private var countryTextField = UITextField()
+    private var citizenshipTextField = UITextField()
+    private var residenceTextField = UITextField()
   
     
     override func viewDidLoad() {
@@ -29,9 +29,9 @@ class BofaScreenViewController: UIViewController, UITextFieldDelegate, UITextVie
         addSpacerViewToStackView2()
         setupRadioButton()
         addSpacerViewToStackView3()
-        setupCountryLabel()
+        setupLabelWithTextField(labelText: "Country of Citizenship *", textFieldPlaceholder: "Panama")
         addSpacerViewToStackView4()
-        setupCitizenshipStatus()
+        setupLabelWithTextField(labelText: "Citizenship status *", textFieldPlaceholder: "Select")
         addSpacerViewToStackView5()
         setupQuestionView()
         addSpacerViewToStackView6()
@@ -39,7 +39,7 @@ class BofaScreenViewController: UIViewController, UITextFieldDelegate, UITextVie
         addSpacerViewToStackView7()
         setupRadioButton2()
         addSpacerViewToStackView8()
-        setupResidenceStatus()
+        setupLabelWithTextField(labelText: "Country of residence ", textFieldPlaceholder: "Select")
         addSpacerViewToStackView9()
         setupNextButton()
         
@@ -183,59 +183,12 @@ class BofaScreenViewController: UIViewController, UITextFieldDelegate, UITextVie
             scrollableStackView.addArrangedSubview(spacerView3)
         }
     
-    private func setupCountryLabel(){
-        let countryLabel = UILabel()
-        countryLabel.text = "Country of Citizenship *"
-        countryLabel.font = UIFont.boldSystemFont(ofSize: 18)
-        countryLabel.backgroundColor = .white
-        countryLabel.textAlignment = .left
-        
-        
-        countryTextField.placeholder = "Panama"
-        countryTextField.backgroundColor = .white
-        countryTextField.borderStyle = .roundedRect
-        countryTextField.textAlignment = .left
-        
-        
-        
-        countryLabel.translatesAutoresizingMaskIntoConstraints = false
-        scrollableStackView.addArrangedSubview(countryLabel)
-        
-        countryTextField.translatesAutoresizingMaskIntoConstraints = false
-        scrollableStackView.addArrangedSubview(countryTextField)
-        
-        
-    }
-    
     private func addSpacerViewToStackView4() {
             let spacerView4 = UIView()
             spacerView4.translatesAutoresizingMaskIntoConstraints = false
             spacerView4.heightAnchor.constraint(equalToConstant: 15).isActive = true // Adjust spacing here
             scrollableStackView.addArrangedSubview(spacerView4)
         }
-    
-    private func setupCitizenshipStatus(){
-        let citizenshipStatusLabel = UILabel()
-        citizenshipStatusLabel.text = "Citizenship status *"
-        citizenshipStatusLabel.font = UIFont.boldSystemFont(ofSize: 18)
-        citizenshipStatusLabel.backgroundColor = .white
-        citizenshipStatusLabel.textAlignment = .left
-        
-        
-        citizenshipTextField.placeholder = "Select"
-        citizenshipTextField.backgroundColor = .white
-        citizenshipTextField.borderStyle = .roundedRect
-        citizenshipTextField.textAlignment = .left
-        
-        
-        
-        citizenshipStatusLabel.translatesAutoresizingMaskIntoConstraints = false
-        scrollableStackView.addArrangedSubview(citizenshipStatusLabel)
-        
-        citizenshipTextField.translatesAutoresizingMaskIntoConstraints = false
-        scrollableStackView.addArrangedSubview(citizenshipTextField)
-        
-    }
     
     private func addSpacerViewToStackView5() {
             let spacerView5 = UIView()
@@ -335,18 +288,18 @@ class BofaScreenViewController: UIViewController, UITextFieldDelegate, UITextVie
         neitherStackView.spacing = 8
         
         let mainStackView = UIStackView(arrangedSubviews: [ssnStackView, itinStackView, neitherStackView])
-                mainStackView.axis = .vertical
-                mainStackView.spacing = 15// Adjust spacing as needed
-                mainStackView.alignment = .leading
-                //mainStackView.distribution = .fillEqually
+        mainStackView.axis = .vertical
+        mainStackView.spacing = 15// Adjust spacing as needed
+        mainStackView.alignment = .leading
+        //mainStackView.distribution = .fillEqually
                 
-                // Add stack view to the view
-                mainStackView.translatesAutoresizingMaskIntoConstraints = false
-                scrollableStackView.addArrangedSubview(mainStackView)
+        // Add stack view to the view
+        mainStackView.translatesAutoresizingMaskIntoConstraints = false
+        scrollableStackView.addArrangedSubview(mainStackView)
         
-                NSLayoutConstraint.activate([
-                        mainStackView.leadingAnchor.constraint(equalTo: scrollableStackView.leadingAnchor, constant: 20)
-                ])
+        NSLayoutConstraint.activate([
+        mainStackView.leadingAnchor.constraint(equalTo: scrollableStackView.leadingAnchor, constant: 20)
+        ])
     }
     
     private func addSpacerViewToStackView8() {
@@ -355,27 +308,6 @@ class BofaScreenViewController: UIViewController, UITextFieldDelegate, UITextVie
             spacerView8.heightAnchor.constraint(equalToConstant: 15).isActive = true // Adjust spacing here
             scrollableStackView.addArrangedSubview(spacerView8)
         }
-    
-    private func setupResidenceStatus(){
-        let residenceStatusLabel = UILabel()
-        residenceStatusLabel.text = "Country of residence *"
-        residenceStatusLabel.font = UIFont.boldSystemFont(ofSize: 18)
-        residenceStatusLabel.backgroundColor = .white
-        residenceStatusLabel.textAlignment = .left
-        
-        
-        residenceTextField.placeholder = "Select"
-        residenceTextField.backgroundColor = .white
-        residenceTextField.borderStyle = .roundedRect
-        residenceTextField.textAlignment = .left
-        
-        residenceStatusLabel.translatesAutoresizingMaskIntoConstraints = false
-        scrollableStackView.addArrangedSubview(residenceStatusLabel)
-        
-        residenceTextField.translatesAutoresizingMaskIntoConstraints = false
-        scrollableStackView.addArrangedSubview(residenceTextField)
-        
-    }
     
     private func addSpacerViewToStackView9() {
             let spacerView9 = UIView()
@@ -393,7 +325,38 @@ class BofaScreenViewController: UIViewController, UITextFieldDelegate, UITextVie
         
         nextButton.translatesAutoresizingMaskIntoConstraints = false
         scrollableStackView.addArrangedSubview(nextButton)
+    }
+}
+
+extension BofaScreenViewController {
+    
+    private func setupLabelWithTextField(labelText: String, textFieldPlaceholder: String) {
+        let label = UILabel()
+        label.text = labelText
+        label.font = UIFont.boldSystemFont(ofSize: 18)
+        label.backgroundColor = .white
+        label.textAlignment = .left
         
+        let textField = UITextField()
+        textField.placeholder = textFieldPlaceholder
+        textField.backgroundColor = .white
+        textField.borderStyle = .roundedRect
+        textField.textAlignment = .left
+        
+        label.translatesAutoresizingMaskIntoConstraints = false
+        scrollableStackView.addArrangedSubview(label)
+        
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        scrollableStackView.addArrangedSubview(textField)
+        
+        // Store text fields if needed for future use
+        if labelText == "Country of Citizenship *" {
+            countryTextField = textField
+        } else if labelText == "Citizenship status *" {
+            citizenshipTextField = textField
+        } else if labelText == "Country of residence *" {
+            residenceTextField = textField
+        }
     }
     
 }
